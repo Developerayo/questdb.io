@@ -143,7 +143,7 @@ class Index extends React.Component {
                 <ul>
                     <li>
                         <span className="headline">Docker</span>
-                        <p>Docker manifest to pull image for your target platform</p>
+                        <p>Docker manifest to pull the image for your target platform</p>
                         <pre>docker pull questdb/questdb</pre>
                     </li>
                     <li>

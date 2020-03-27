@@ -62,8 +62,8 @@ class Footer extends React.Component {
                         <a href="https://join.slack.com/t/questdb/shared_invite/enQtNzk4Nzg4Mjc2MTE2LTEzZThjMzliMjUzMTBmYzVjYWNmM2UyNWJmNDdkMDYyZmE0ZDliZTQxN2EzNzk5MDE3Zjc1ZmJiZmFiZTIwMGY>"> Join
                             Slack </a>
                         <a
-                            href="https://twitter.com/"
-                            target="@QuestDB"
+                            href="https://twitter.com/QuestDB"
+                            target="_blank"
                             rel="noreferrer noopener">
                             Twitter
                         </a>

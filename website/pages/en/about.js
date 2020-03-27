@@ -90,7 +90,7 @@ class Index extends React.Component {
         const Board = () => (
             <div className="about-page-highlight">
                 <div className="about-content-wide center">
-                    <span className="title colored bold center">Team</span>
+                    <span className="title colored bold center">Meet The Team</span>
                     <ul className="headshot-list">
                         <li>
                             <a href="https://www.linkedin.com/in/nicolas-hourcard-cfa-b7349b37/" target="_blank">
@@ -139,15 +139,19 @@ class Index extends React.Component {
                         <Block layout="threeColumn">
                             {[
                                 {
-                                    content: '<span class="center"><a href="tel:00442080881225">+44(0)2 080 881 225</a></span>',
+                                    content: '<span class="center"><a href="tel:00442080881225">+44(0)2 080 881 225</a></span><br/>',
                                     image: `${baseUrl}img/phone.svg`
                                 },
                                 {
-                                    content: '<span class="center">hello@questdb.io</span>',
-                                    image: `${baseUrl}img/email.svg`
+                                    content: '<span class="center">70 WILSON STREET, 1ST FLOOR, LONDON EC2A 2DB</span><br/>',
+                                    image: `${baseUrl}img/location.svg`
                                 },
                                 {
-                                    content: '<span class="center"><a  href="https://join.slack.com/t/questdb/shared_invite/enQtNzk4Nzg4Mjc2MTE2LTEzZThjMzliMjUzMTBmYzVjYWNmM2UyNWJmNDdkMDYyZmE0ZDliZTQxN2EzNzk5MDE3Zjc1ZmJiZmFiZTIwMGY>">Join our Slack</a></span>',
+                                    content: '<span class="center">hello@questdb.io</span><br/>',
+                                    image: `${baseUrl}img/email.svg` 
+                                }, 
+                                {
+                                    content: '<span class="center"><a href="https://join.slack.com/t/questdb/shared_invite/enQtNzk4Nzg4Mjc2MTE2LTEzZThjMzliMjUzMTBmYzVjYWNmM2UyNWJmNDdkMDYyZmE0ZDliZTQxN2EzNzk5MDE3Zjc1ZmJiZmFiZTIwMGY>">Join our Slack</a></span><br/>',
                                     image: `${baseUrl}img/slack.svg`
                                 },
                             ]}
@@ -178,21 +182,24 @@ class Index extends React.Component {
                 <Block className="contact-block" layout="threeColumn">
                     {[
                         {
-                            content: '<span class="center"><a href="tel:00442080881225">+44(0)2 080 881 225</a></span>',
+                            content: '<span class="center"><a href="tel:00442080881225">+44(0)2 080 881 225</a></span><br/>',
                             image: `${baseUrl}img/phone.svg`
                         },
                         {
-                            content: '<span class="center">hello@questdb.io</span>',
-                            image: `${baseUrl}img/email.svg`
+                            content: '<span class="center">70 WILSON STREET, 1ST FLOOR, LONDON EC2A 2DB</span><br/>',
+                            image: `${baseUrl}img/location.svg`
                         },
                         {
-                            content: '<span class="center"><a  href="https://join.slack.com/t/questdb/shared_invite/enQtNzk4Nzg4Mjc2MTE2LTEzZThjMzliMjUzMTBmYzVjYWNmM2UyNWJmNDdkMDYyZmE0ZDliZTQxN2EzNzk5MDE3Zjc1ZmJiZmFiZTIwMGY>">Join our Slack</a></span>',
+                            content: '<span class="center">hello@questdb.io</span><br/>',
+                            image: `${baseUrl}img/email.svg` 
+                        }, 
+                        {
+                            content: '<span class="center"><a href="https://join.slack.com/t/questdb/shared_invite/enQtNzk4Nzg4Mjc2MTE2LTEzZThjMzliMjUzMTBmYzVjYWNmM2UyNWJmNDdkMDYyZmE0ZDliZTQxN2EzNzk5MDE3Zjc1ZmJiZmFiZTIwMGY>">Join our Slack</a></span><br/>',
                             image: `${baseUrl}img/slack.svg`
                         },
+                        
                     ]}
                 </Block>
-                <div className="address">QuestDB <br/> 70 WILSON STREET <br/> 1ST FLOOR <br/> LONDON EC2A 2DB
-                </div>
             </div>
         );
 

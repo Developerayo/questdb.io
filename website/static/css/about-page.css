@@ -129,10 +129,10 @@ body > div.navPusher > div > div.mainContainer > div.contact-box > div {
 .contact-box {
     background-color: #f8fafa;
     width: 200px;
-    height: 420px;
+    height: 600px;
     margin: 50px 20px -400px auto;
     border-radius: 8px;
-    box-shadow: 10px 30px 30px 20px rgba(0, 0, 0, 0.55);
+    box-shadow: 5px 5px 20px 2px rgba(0, 0, 0, 0.55);
     -webkit-font-smoothing: antialiased;
     opacity: .99;
 }

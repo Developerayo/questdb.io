@@ -64,8 +64,7 @@ class Index extends React.Component {
                     <span className="title colored bold">Careers</span>
                     <p>
                         Want to join an ambitious team whose mission to push the boundaries of database
-                        performance? <b> We're hiring!</b> QuestDB is based in <b>London</b> and <b>San Francisco</b>,
-                        and backed by leading venture capital funds.
+                        performance? <b> We're hiring!</b> QuestDB is based in <b>London</b> and <b>San Francisco</b> and backed by leading venture capital funds.
                     </p>
 
                     <img className="careers-img" src='/img/team.svg'/>

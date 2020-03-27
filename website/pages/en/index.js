@@ -176,7 +176,7 @@ class Index extends React.Component {
                                 '</li>' +
                                 '<li>' +
                                 '<span class="headline">Attainable hardware</span>' +
-                                '<span class="summary">Hosted on single general purpose AWS bare metal. No expensive data sharding / distributed queries. No need for expensive GPU nor terabytes of RAM</span>' +
+                                '<span class="summary">Hosted on single general-purpose AWS bare metal. No expensive data sharding / distributed queries. No need for expensive GPU nor terabytes of RAM</span>' +
                                 '</li>' +
                                 '<li>' +
                                 '<span class="headline">Arbitrary SQL queries</span>' +
@@ -193,11 +193,11 @@ class Index extends React.Component {
                                 '</li>' +
                                 '<li>' +
                                 '<span class="headline">Parallel SQL execution</span>' +
-                                '<span class="summary">Low overhead work split and work stealing</span>' +
+                                '<span class="summary">Low overhead work split </br> and work-stealing</span>' +
                                 '</li>' +
                                 '<li>' +
                                 '<span class="headline">Time series joins</span>' +
-                                '<span class="summary">Time-series sampling, and joining on arbitrary timestamps</span>' +
+                                '<span class="summary">Time-series sampling, and </br> joining on arbitrary </br> timestamps</span>' +
                                 '</li>' +
                                 '<li>' +
                                 '<span class="headline">Vectorized aggregation</span>' +
@@ -228,7 +228,7 @@ class Index extends React.Component {
                                     <li><label>Email</label></li>
                                     <li><input id="jsInputEmail" name="EMAIL" type="text" placeholder="john@acme.com"/>
                                     </li>
-                                    <li className="send"><a href="" id="jsSignUp">Sign up!</a></li>
+                                    <li className="send"><a href="" id="jsSignUp">GET EARLY ACCESS</a></li>
                                 </ul>
                                 <div style={{display: 'none'}}>
                                     <input type="text" name="b_ded0bfce4eb932e7617add7c5_0e88cd5ecb" tabIndex="-1"
