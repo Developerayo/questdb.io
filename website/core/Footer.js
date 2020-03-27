@@ -81,7 +81,8 @@ class Footer extends React.Component {
                             data-count-aria-label="# stargazers on GitHub"
                             aria-label="Star this project on GitHub">
                             Star
-                        </a>
+                        </a> &nbsp;
+                       <a class="github-button" href="https://github.com/questdb/questdb/fork" data-color-scheme="no-preference: light; light: light; dark: light;" data-show-count="true" aria-label="Fork questdb/questdb on GitHub">Fork</a>
                         {this.props.config.twitterUsername && (
                             <div className="social">
                                 <a
