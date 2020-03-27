@@ -1,4 +1,4 @@
-![QuestDB](https://avatars3.githubusercontent.com/u/52297642?s=200&v=4)
+![QuestDB](https://raw.githubusercontent.com/questdb/questdb/master/core/src/main/resources/site/public/images/logo-readme.jpg)
 # QuestDB
 
 QuestDB is a SQL open-source time-series database to store, stream and query data - faster
