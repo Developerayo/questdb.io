@@ -35,6 +35,8 @@ yarn install
 yarn run start
 ```
 
+> You should find the output on http://localhost:3000/
+
 ## Deploy
 
 ```
