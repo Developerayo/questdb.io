@@ -335,7 +335,6 @@ class Index extends React.Component {
                 <ul>
                     <li><a href="#dev-rel-job">Head of developer relations (London, San Francisco)</a></li>
                     <li><a href="#dev-backend-job">Back-end engineer (London)</a></li>
-                    <li><a href="#dev-frontend-job">Front-end engineer (London)</a></li>
                     <li><a href="#dev-techwriter-job">Technical Writer (London, SF, remote)</a></li>
                 </ul>
             </div>
