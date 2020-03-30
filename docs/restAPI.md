@@ -4,16 +4,17 @@ title: REST API
 sidebar_label: REST API
 ---
 
-QuestDB REST API is based around standard HTTP features and is understood by off-the-shelf HTTP clients.
-It provides a simple way to interact with QuestDB as is compatible with most programming languages.
-API functions are keyed on full URL and they use query parameters as their arguments. Responses are function specific, for example you can download
-query results as CSV files, directly from the API. You can also get JSON responses. 
+The QuestDB REST API is based around standard HTTP features and is understood by off-the-shelf HTTP clients. 
+It provides a simple way to interact with QuestDB and is compatible with most programming languages. 
+API functions are fully keyed on the URL and they use query parameters as their arguments. 
+Responses are function specific, for example you can download query results as CSV files, 
+directly from the API. You can also get JSON responses.
 
 Available function are `/imp`, `/exec`, `/exp` and `/chk`.
 
 
->REST API can be accessed interactively using Web Console that is a part of QuestDB distribution.
-To access Web Console visit **[http://localhost:9000](http://localhost:9000)**
+>The REST API can be accessed interactively using Web Console that is a part of QuestDB distribution.
+To access the Web Console visit **[http://localhost:9000](http://localhost:9000)**
 
 Other machines on your network can access the console or connect to the DB programmatically
  by navigating `http://IP_OF_THE_HOST_MACHINE:9000`
@@ -25,8 +26,8 @@ data size. Data type and structure is detected automatically and usually without
 However in some cases additional configuration can be provided to augment automatic detection results.
 
 
->The structure detection algorithm analyses chunk at beginning and relies on relative uniformity of data.
-> When first chunk is non-representative of rest of data automatic import can yield errors.
+> The structure detection algorithm analyses the chunk in the beginning and relies on relative uniformity 
+> of data. When the first chunk is non-representative of the rest of the data, automatic imports can yield errors.
 
 
 `/imp` column names from header row as table columns. The following characters are removed from column names:
@@ -35,10 +36,10 @@ However in some cases additional configuration can be provided to augment automa
      [space] _  ?  .  ,  \  \  \\  /  \0  :  )  (  +  -  *  %  ~
 ~~~
 
-When header row is missing column names are generated automatically.
+When a header row is missing, column names are generated automatically.
 
 ### Syntax
-`/imp` request is HTTP POST, multi-part. It accepts a mixture of form and query arguments:
+`/imp` requests are HTTP POST, multipart requests. they accept a mixture of form and query arguments:
 
 <table class="alt tall">
 <thead>

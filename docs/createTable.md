@@ -44,7 +44,7 @@ values and keys. When column has large number of distinct symbol values (over 10
 heap size might cause OutOfMemory error. To avoid Java Heap impact, `NOCACHE` will leverage off-heap structure, which can deal with larger value
 count but is slower. Default option is `CACHE`.
 
-* `inlineIndexDef` - when present, QuestDB will create and maintain [index](sqlINDEX.md) for `symbol` column.
+* `inlineIndexDef` - when present, QuestDB will create and maintain [index](indexes.md) for `symbol` column.
 
   ![alt-text](assets/inline-index-def.svg)
 

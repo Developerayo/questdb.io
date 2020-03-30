@@ -14,15 +14,15 @@ We support 64-bit JAVA 8 SDK and JRE
 
 We recommend to have Java installed and `JAVA_HOME` environment variable setup. 
 Both Windows and Linux wrappers for QuestDB will require `JAVA_HOME`. OSX wrapper 
-will figure out Java location automatically.
+will figure out the Java location automatically.
 
 ### Downloading JAVA
 > QuestDB requires JAVA You can download it **[here](https://www.oracle.com/technetwork/java/javase/downloads/jre8-downloads-2133155.html)**
->. If you are installing on ARM, download the ARM versions **[here](https://www.oracle.com/technetwork/java/javase/downloads/java-archive-javase8u211-later-5573849.html)**
+>. If you are installing on ARM, download the ARM versions **[here](https://www.oracle.com/technetwork/java/javase/downloads/java-archive-javase8u211-later-5573849.html)**.
 
 ### Downloading QuestDB
 
-> You can download QuestDB binaries and launch scripts **[here](https://github.com/questdb/questdb/releases/download/4.1.5/questdb-4.1.5-bin.tar.gz)**
+> You can download QuestDB binaries and launch scripts **[here](https://github.com/questdb/questdb/releases/download/4.1.5/questdb-4.1.5-bin.tar.gz)**.
 
 ### Installing
 Simply extract the files in a directory of your choice. Then to run:
@@ -30,7 +30,7 @@ Simply extract the files in a directory of your choice. Then to run:
 - On Linux & MacOS, launch `questdb.sh`
 
 ## Running on Windows
-QuestDB can either be run as a program or as a service. You can start it out of the box with default
+QuestDB can either be run as a program or as a service. You can start it out of the box with the default
 configuration, or customise parameters as you start.
 
 ### Start
@@ -38,35 +38,15 @@ configuration, or customise parameters as you start.
 Launch a new `cmd.exe` window and navigate to where to where you extracted tar.gz :
 
 ```shell script
-C:\cd questdb-1.0.2
-
-C:\questdb-1.0.2>dir
-Volume in drive C has no label.
-Volume Serial Number is 9CD8-DB1D
-
-Directory of C:\questdb-1.0.2
-
-26/10/2016  19:33    &lt;DIR&gt;          .
-26/10/2016  19:33    &lt;DIR&gt;          ..
-02/08/2016  22:04            35,179 LICENSE.txt
-26/10/2016  19:33    &lt;DIR&gt;          qdbroot
-26/10/2016  13:32            75,322 questdb.exe
-26/10/2016  16:10         3,107,733 questdb.jar
-19/10/2016  20:44             5,206 questdb.sh
-              4 File(s)      3,223,440 bytes
-              3 Dir(s)  796,188,151,808 bytes free
-</pre>
-
-Then run the launcher as follows
-<pre class="term">
-C:\questdb-1.0.2&gt;questdb.exe
+cd questdb-1.0.2
+questdb.exe
 ```
 
 
 
 ### Start (as a service)
 Simply run `questdb.exe` as Administrator.
->When QuestDB is run as a service, the default home directory is `C:\Windows\System32\questdb`
+>When QuestDB is run as a service, the default home directory is `C:\Windows\System32\questdb`.
 
 
 ### Stop
@@ -81,21 +61,21 @@ When run from console QuestDB server home is `qdbroot` in current directory.
 ### Start
 
 ```shell script
-mbp:~ user$ questdb start
+questdb start
 ```
 
 
 
 ### Stop
 ```shell script
-mpb:~ user$ questdb stop
+questdb stop
 ```
 
 
 
 ### Start with a different home directory:
 ```shell script
-mbp:~ user$ questdb start -d $HOME/.questdb
+questdb start -d $HOME/.questdb
 ```
 
 
@@ -111,14 +91,14 @@ The launch script is `questdb.sh`. The questdb.exe is a part of multi-platform p
 Start QuestDB as follows:
 
 ```shell script
-user@ubuntu:~$ cd questdb-1.0.2/
-user@ubuntu:~/questdb-1.0.2$ ./questdb.sh start
+cd questdb-4.1.5/
+./questdb.sh start
 ```
 
 ### Stop
 Response:
 ```shell script
-user@ubuntu:~/questdb-1.0.2$ ./questdb.sh stop
+./questdb.sh stop
 ```
 
 
@@ -128,8 +108,7 @@ Windows launches supports the following commands and options:
 
 
 ```shell script
-Usage: C:\questdb-1.0.2\questdb.exe 
-[start|stop|status|install|remove] [-d dir] [-f] [-j JAVA_HOME] [-t tag]
+questdb.exe [start|stop|status|install|remove] [-d dir] [-f] [-j JAVA_HOME] [-t tag]
 ```
 
 
@@ -182,7 +161,7 @@ you would like to run multiple instances of QuestDB you have to use <code>-t</co
 </tr>
 <tr>
 <td><code>-d</code></td>
-<td>Path to QuestDB home directory</td>
+<td>Path to QuestDB home directory.</td>
 </tr>
 <tr>
 <td><code>-t</code></td>

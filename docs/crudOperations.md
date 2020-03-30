@@ -4,14 +4,14 @@ title: CRUD Operations
 sidebar_label: CRUD Operations
 ---
 
-`LASTEST BY` allows QuestDB developers implement CRUD operations over immutable data store. 
+`LASTEST BY` allows QuestDB developers to implement CRUD operations over immutable data stores. 
 In this document we will describe each of CRUD operations and how to implement it using `LATEST BY`.
 
 ## (C)reate
 
-Create operation in QuestDB appends record to bottom of table. If table is partitioned timestamp value determines 
-partition the record is appended to. Only last partition can be appended to and attempt to add timestamp in middle of
-table will result in error. When table is not partitioned, records can be added in any timestamp order and table will have only one partition.
+Create operation in QuestDB append records to bottom of a table. If the table is partitioned, the `timestamp` value determines 
+partition the record is appended to. Only the last partition can be appended to and an attempt to add a timestamp in middle of a
+table will result in error. When a table is not partitioned, records can be added in any timestamp order and the table will only have one partition.
 
 Lets create table that holds bank balances for customers.
 
@@ -78,11 +78,10 @@ connection.close();
 ```
 <!--END_DOCUSAURUS_CODE_TABS-->
 
-Here:
  - `cust_id` is the customer identifier. It uniquely identifies customer.
- - `balance_ccy` balance currency. We use `SYMBOL` here to avoid storing text against each record to save space and increase database performance
- - `balance` is the current balance for customer and currency tuple 
- - `timestamp` timestamp in microseconds of the record
+ - `balance_ccy` balance currency. We use `SYMBOL` here to avoid storing text against each record to save space and increase database performance.
+ - `balance` is the current balance for customer and currency tuple.
+ - `timestamp` timestamp in microseconds of the record.
 
 Lets insert records:
 <!--DOCUSAURUS_CODE_TABS-->
@@ -172,8 +171,10 @@ connection.close();
 
 ## (R)ead
 
-Reading records can be done via `SELECT` query or by reading table directly via Java API. Reading via Java API is limited to
-reading data of one table only.
+Reading records can be done using `SELECT` or by reading a table directly via the Java API. 
+Reading via the Java API (see tab `Java Raw`) iterates over a table and can therefore only access one table at a time.
+If you would like to query various tables via the Java API, you can pass SQL to Java and read the resulting table 
+(see tab `Java SQL`).
 
 <!--DOCUSAURUS_CODE_TABS-->
 <!--SQL-->
@@ -258,7 +259,9 @@ insert into balances (cust_id, balance_ccy, balance, timestamp)
 	values (1, 'USD', 660.50, to_timestamp(6000000005));
 ```
 
-You expected `UPDATE` statement, right? Why `INSERT`? Do we now have duplicate records? That is right. What we have is change history. Our `SELECT` statement will have to change to select only last row for `(1,USD)` tuple:
+You might expect an `UPDATE`. QuestDB uses `INSERT` which means each table keeps change history.
+In order to select only the latest value, our `SELECT` statement will have to change. 
+We use `LATEST BY` to only select last row for the `(1,USD)` tuple.
 
 ```sql
 select * from balances latest by cust_id, balance_ccy
@@ -270,7 +273,8 @@ To view balances of selected customers you can run this query:
 select * from balances latest by cust_id, balance_ccy where cust_id = 1
 ```
 
-In above example QuestDB will execute `where` clause *before* `latest by`. To execute `where` _after_ `latest by` we have to rely on sub-queries. This is an example of how to select customers with balances over 800:
+In the above example QuestDB will execute the `where` clause *before* `latest by`. To execute `where` _after_ `latest by` 
+we have to rely on sub-queries. This is an example of how to select customers with balances over 800.
 
 ```sql
 (select * from balances latest by cust_id, balance_ccy) where balance > 800

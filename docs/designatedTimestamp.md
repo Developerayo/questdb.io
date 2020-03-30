@@ -5,16 +5,16 @@ sidebar_label: Designated timestamp
 ---
 
  
-QuestDB offers the option to elect a column as `designated timestamp`. This allows to leverage specific
+QuestDB offers the option to elect a column as `designated timestamp`. This allows you to leverage specific
 high-performance time-series functions of QuestDB, but introduces a constraint on the column in question that
 will reject out of order inserts.
 
 #### Properties
-- Only a `timestamp` column can be `designated timestamp`
+- Only a `timestamp` column can be `designated timestamp`.
 - Only `one` column can be elected for a given table.
-- `designated timestamp` can be elected either 
-    - with table creation
-    - on the fly on sub-tables created within a query
+- `designated timestamp` can be elected either:
+    - during table creation.
+    - on the fly on sub-tables created within a query.
 
 >Once a column is elected `designated timestamp`, it will enforce an order policy on this column. 
 - Inserts in `designated timestamp` need to be incrementing
@@ -27,9 +27,9 @@ However it is worth noting that:
 
 
 #### Advantages
-Electing a `designated timestamp` allows to:
-- leverage timestamp partitions. For more information, please refer to the **[partitions section](partitions.md)**.
-- use time-series joins such as `ASOF JOIN`. For more information please refer to the  **[joins section](joins.md)**.
+Electing a `designated timestamp` allows you to:
+- leverage timestamp partitions. For more information, refer to the **[partitions section](partitions.md)**.
+- use time-series joins such as `ASOF JOIN`. For more information refer to the  **[joins section](joins.md)**.
 
 #### Examples
 
@@ -50,7 +50,7 @@ The constraint provides many benefits for both insert and query speed. However, 
 for example when inserting values from multiple devices with slightly different clocks or network conditions.
 Luckily, there are ways to circumvent this with little overhead:
 
-- Use the `database host clock` as `designated timestamp`, for example by using `systimestamp()`:
+- Use the `database host clock` as `designated timestamp` by using `systimestamp()`:
 
 ```sql
 CREATE TABLE readings(
@@ -70,7 +70,7 @@ to_timestamp('2020-03-01:15:43:21', 'yyyy-MM-dd:HH:mm:ss'),
 );
 ```
 
-For more information about `systimestamp()` and related functions, please check the 
+> For more information about `systimestamp()` and related functions, check the 
 **[date & time functions section](functionsDateAndTime.md)**.
 
 - Use a temporary table for the latest partition and order data to insert into the main table when changing partition.

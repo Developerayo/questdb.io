@@ -7,7 +7,7 @@ Docker is a convenient method to have QuestDB running very quickly via simple co
 to be installed on your system. QuestDB has images for Windows, Linux and ARM64 Linux as well as manifest to automatically
 download correct image for your target architecture.
 
-Disadvantage of Docker is that QuestDB will be running in a virtualized environment with up to 20% performance penalty.
+The disadvantage of Docker is that QuestDB will be running in a virtualized environment with up to 20% performance penalty.
 
 You can find our docker repository **<a href="https://hub.docker.com/r/questdb/questdb" target="_blank">here</a>**.
 
@@ -54,7 +54,7 @@ docker create --name questdb -p9000:9000 -p 8892:8892 questdb/questdb
 
 > You can set any name you like for the container name. This name will be used when you start/stop the container.
 
-If you would like to use a specific release tag, you can specify as follows when creating the container:
+If you would like to use a specific release tag, you can specify it as follows when creating the container:
 
 ```shell script
 docker create --name questdb -p9000:9000 -p 8892:8892 questdb/questdb:4.0.2
@@ -76,12 +76,12 @@ Available options:
 </tr>
 <tr>
 <td><code>-p</code> (optional)</td>
-<td>Allows Docker to expose a port. e.g <code>`-p 9000:9000`</code> will expose port 9000.
+<td>Allows Docker to expose a port e.g <code>-p 9000:9000</code> will expose port 9000.
 Though the parameter is optional, not opening the ports will limit interactions with the database.</td>
 </tr>
 <tr>
 <td><code>-v</code> (optional)</td>
-<td>Specify a path where QuestDB will save your data directly on the host machine. e.g <code>-v /local/dir:/root/.questdb/db</code></td>
+<td>Specify a path where QuestDB will save your data directly on the host machine e.g <code>-v /local/dir:/root/.questdb/db</code></td>
 </tr>
 </tbody>
 </table>
@@ -125,7 +125,7 @@ As the process will be running in shell, you can `CTRL + C` to stop it.
 ## Log into the container
 
 You can log into the container and interact using `cmd` (if your container is windows-based) or `bash` 
-(if your container is linux-based). If you are using a MacOS or linux machine, this will be `bash`. If you
+(if your container is linux-based). If you are using a MacOS or linux machine, this will also be `bash`. If you
 are using a Windows machine, it could be either `cmd` or `bash` depending on what type of container you
 are running.
 

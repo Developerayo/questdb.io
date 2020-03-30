@@ -277,64 +277,6 @@ class Index extends React.Component {
             </div>
         );
 
-        const DefFE = () => (
-            <div className="job" id="dev-frontend-job">
-                <span className="jobtitle colored bold">Front-end engineer</span>
-                <p>
-                    QuestDB is not only meant to be fast: it is meant for users to achieve what they want with ease.
-                    While most companies separate front-end and back-end developers through invisible and unnecessary
-                    knowledge and information silos, we do the opposite and strive to build an end-to-end integrated
-                    product.
-                    <br/><br/>
-                    While front-end focused, the role will he actively involved in every step of the design and
-                    development of the database engine. By having decision power in the back-end development, you will
-                    be instrumental in creating product that looks and feels great because it is a whole
-                    integrated entity.
-                </p>
-
-                <span className="jobsubtitle colored bold">Responsibilities</span>
-                <ul>
-                    <li>Development: Design and implementation of all internal and user-facing UI. This includes tools
-                        for database setup, querying and visualisation, realtime monitoring,
-                        and cluster management via integrations with various cloud providers along with occasional
-                        website work.
-                    </li>
-                    <li>UX: Full flexibility to imagine, design, and implement smooth and powerful user experience
-                        through all tools and website. You will be fully responsible and independent to create the
-                        best user experience out there.
-                    </li>
-                    <li>
-                        Features design: advise on new and existing features so their development is consistent with the
-                        user experience you design.
-                    </li>
-                    <li>Community development: engage with the community to both promote new features, absorb and
-                        integrate feedback, and help users achieve their goals. Occasionally host live demos or web
-                        conferencing
-                        to show your work.
-                    </li>
-                </ul>
-
-                <span className="jobsubtitle colored bold">Requirements</span>
-                <ul>
-                    <li>3+ years of experience in front-end development</li>
-                    <li>Innovative spirit with both the ability to generate ideas and to implement them</li>
-                    <li>Passionate about open source and the developer community</li>
-                    <li>Desire to get to know the back-end</li>
-                    <li>Familiarity with cloud architectures and APIs</li>
-                    <li>Database knowledge preferred</li>
-                    <li>Familiarity with developer tools</li>
-                    <li>Excellent spoken and written English</li>
-                </ul>
-
-                <span className="jobsubtitle colored bold">Remuneration</span>
-                Users will see and interact with QuestDB through your work, and the quality of it will forge their
-                opinion.
-                This high responsibility job comes with a competitive salary and large equity stake.
-
-            </div>
-        );
-
-
         const TechWri = () => (
             <div className="job" id="dev-techwriter-job">
                 <span className="jobtitle colored bold">Technical content writer / Developer education</span>
@@ -352,7 +294,7 @@ class Index extends React.Component {
                 <span className="jobsubtitle colored bold">Responsibilities</span>
                 <ul>
                     <li>Participate in forming and executing the content strategy at QuestDB by leading article creation
-                        and publicization.
+                        and publication.
                     </li>
                     <li>Research, write, edit and facilitate technical articles, blog posts, white papers and reports
                         through a variety of channels, including QuestDB’s blog and social media.
@@ -375,11 +317,11 @@ class Index extends React.Component {
 
                 <span className="jobsubtitle colored bold">Requirements</span>
                 <ul>
-                    <li>2+ years of experience in technical content creation, preferably for an open source projec</li>
+                    <li>2+ years of experience in technical content creation, preferably for an open source project</li>
                     <li>Passionate about open source and the developer community</li>
-                    <li>String writing skills</li>
-                    <li>Database knowledge preferred</li>
+                    <li>Database and SQL knowledge required</li>
                     <li>Excellent spoken and written English</li>
+                    <li>Content marketing knowledge preferred</li>
                 </ul>
 
             </div>
@@ -406,10 +348,9 @@ class Index extends React.Component {
                     <Intro/>
                     <Apply/>
                     <Openings/>
+                    <TechWri/>
                     <DevRel/>
                     <Dev/>
-                    <DefFE/>
-                    <TechWri/>
                     <JobFooter/>
                 </div>
             </div>

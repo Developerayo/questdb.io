@@ -15,22 +15,23 @@ QuestDB offers the option to partition tables by intervals of time. Data for eac
 - Available partition intervals are `NONE`, `DAY`, `MONTH` and `YEAR`.
 - Default behaviour is `PARTITION BY NONE`.
 - Partitions are defined at table creation. 
-For more information, please refer to **[CREATE TABLE section](createTable.md)**.
+For more information, refer to **[CREATE TABLE section](createTable.md)**.
 
 #### Requirements
-Partition is only available on tables with a `designated timestamp`. The main consequence of using a
-`designated timestamp` is that the field in question will enforce an increasing policy on timestamp value.
-For more information on `designated timestamp`, please refer to the **[designated timestamp section](designatedTimestamp.md)**.
+Partition is only available on tables with a `designated timestamp`. The main benefit of using a designated timestamp 
+is that the field in question will enforce an increasing policy on timestamp value. This allows you to leverage 
+specific high-performance time-series functions.
+For more information on `designated timestamp`, refer to the **[designated timestamp section](designatedTimestamp.md)**.
 
 #### Advantages
-- Reduced disk IO for timestamp interval searches as our SQL optimiser leverages partitioning.
-- Significantly improved calculations and seek times by leveraging the chronology and relative immutability of data for
-previous partitions.
-- Physical separation of data files allowing to easily implement file retention policies or extract certain intervals.
+- Reduced disk IO for timestamp interval searches. This is because our SQL optimiser leverages partitioning.
+- Significantly improved calculations and seek times. This is achieved by leveraging the chronology and relative 
+immutability of data for previous partitions.
+- Physical separation of data files. This makes it easily to implement file retention policies or extract certain intervals.
 
 #### Storage Example
 Each partition effectively is a directory  on the host machine  corresponding to the partitioning interval. 
-In the example below, we assume a table `trips` that has been `PARTITION BY MONTH`.
+In the example below, we assume a table `trips` that has been partitioned using `PARTITION BY MONTH`.
 ```
 [quest-user trips]$ dir
 2017-03	    2017-10 	2018-05	    2019-02	
@@ -42,7 +43,7 @@ In the example below, we assume a table `trips` that has been `PARTITION BY MONT
 2017-09	    2018-04 	2018-11 	
 ```
 
-Each partition on disk contains the column data files of the corresponding timestamp interval.
+Each partition on the disk contains the column data files of the corresponding timestamp interval.
 ```
 [quest-user 2019-06]$ dir
 _archive    cab_type.v              dropoff_latitude.d     ehail_fee.d    improvement_surcharge.d  passenger_count.d  pickup_latitude.d     rate_code_id.d  total_amount.d   vendor_id.d

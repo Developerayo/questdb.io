@@ -16,7 +16,7 @@ Adds index to existing column
 ## Description
 Adds new index to column of type `symbol`. Adding index is an atomic, non-blocking and non-waiting operation. Once complete optimiser will start using new index for SQL executions.
 
-> For more information about indexes please refer to the **[INDEX section](sqlINDEX.md)**.
+> For more information about indexes please refer to the **[INDEX section](indexes.md)**.
 
 ## Example
 ```sql

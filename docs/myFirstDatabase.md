@@ -5,16 +5,17 @@ sidebar_label: My First Database
 ---
 
 The goal of this tutorial is to explore QuestDB's features to interact with time-series data.
-This assumes you have an instance running. See instructions in the [installation page](installationOverview.md)
+This assumes you have an instance running. If not, instructions are available in the 
+[installation page](installationOverview.md)
 
-In this tutorial, we will learn to
+In this tutorial, we will learn to:
 - Create tables 
 - Populate tables with sample data
 - Run simple and more advanced queries
 - Delete tables
 
-As an example, we will look at a hypothetical temperature readings from a variety of sensors. 
-All commands are run through the [Web Console](usingWebConsole.md) accessible on 
+As an example, we will look at hypothetical temperature readings from a variety of sensors. 
+> All commands are run through the [Web Console](usingWebConsole.md) accessible on 
 **[http://localhost:9000/index.html](http://localhost:9000/index.html)**.
 
 ## Creating a table
@@ -22,15 +23,15 @@ All commands are run through the [Web Console](usingWebConsole.md) accessible on
 The first step is to create tables. One will contain the metadata of our sensors, the other will contain
  the readings from these sensors.
 
-First, we create the `sensors` table
+Let's start by creating the `sensors` table:
 ```sql
 CREATE TABLE sensors (ID LONG, make STRING, city STRING);
 ```
 
 >Find more about these commands in the **[SQL Administration](createTable.md)** commands section.
 
-## Insert data
-We populate our `sensors` table with procedurally-generated data:
+## Inserting data
+Let's populate our `sensors` table with procedurally-generated data:
 ```sql
 INSERT INTO sensors
     SELECT 
@@ -41,8 +42,11 @@ INSERT INTO sensors
 ;
 ```
 
+> You can find more information on procedurally generated data in the [random  generator functions](functionsRandomValueGenerators.md)
+> and in the [row generator functions](functionsRowGenerator.md)
+
 Our `sensors` table now contains 10,000 randomly generated sensors of different makes and in various cities.
-It should look like this
+It should look like the below:
 
 |ID     | make              | city
 |----   |-----              |-----
@@ -52,7 +56,7 @@ It should look like this
 |4      | Honeywell         | Chicago 
 |...    | ...               | ...    
 
-Let's now create sensor readings. In this case, we will generate the table and the data at
+Let's now create some sensor readings. In this case, we will generate the table and the data at
 the same time. 
 
 ```sql
@@ -69,10 +73,10 @@ PARTITION BY MONTH;
 ```
 
 Note:
-- we elect `ts` as `TIMESTAMP`. This will enable time-partitioning.
-- we partition data by `MONTH`. Our data will be sharded in monthly files.
+- we elected `ts` as `TIMESTAMP`. This will enable time-partitioning.
+- we partitioned data by `MONTH`. Our data will be sharded in monthly files.
 
-The generated data will look like this:
+The generated data will look like the below:
 
 |ID	    |ts	                            |temp	        |sensorId
 |-------|-------------------------------|---------------|---------
@@ -85,23 +89,22 @@ The generated data will look like this:
 
 ## Running queries
 
-Let's start simple:
+Let's first select all records from the `readings` table (note the omission of `SELECT * FROM`):
 ```sql
--- All readings (note the omission of SELECT * FROM)
 readings;
 ```
 
+Let's also select the `count` of records from `readings`:
 ```sql
---count of readings
 SELECT count() FROM readings;
 ```
-result:
 |count     |
 |----------|
 |10,000,000|
 
+
+and the average reading:
 ```sql
---average of all readings
 SELECT avg(temp) FROM readings;
 ```
 |average   |
@@ -120,7 +123,7 @@ JOIN(
 ON readings.sensorId = sensId;
 ```
 
-Results should look like this
+Results should look like the data below:
 
 |ID	|ts	                            |temp	        |sensorId	|sensId	|make	            |city
 |---|-------------------------------|---------------|-----------|-------|-------------------|---------
@@ -143,7 +146,7 @@ JOIN(
 ON readings.sensorId = sensId;
 ```
 
-Results should look like this
+Results should look like the data below:
 
 |city	        |max
 |---------------|-----------
@@ -167,7 +170,7 @@ WHERE ts ='2019-10-21;1d' -- this is an interval between 21-10 and 1day later
 SAMPLE BY 1h;
 ```
 
-Results should look like this
+Results should look like the data below:
 
 |ts	                            |city	|make	|average
 |-------------------------------|-------|-------|------------
@@ -183,11 +186,11 @@ Results should look like this
 > Find more about these commands in the **[Select](sqlSELECT.md)** and **[Join](joins.md)** sections.
 
 ## Finding your data files
-Data is stored on disk. You can find it in the same path as QuestDB executable in the db folder. 
+Data is stored on the hard drive. You can find it in the same path as QuestDB executable in the db folder. 
 There will be a directory for each table. In this instance
 `/questDB/db/readings` and `/questDB/db/sensors`.
 
-Upon exploring this folder, you can see your data has been partitioned monthly:
+Upon exploring this folder, you can see your data has been partitioned monthly.
 |**Folders**    |               |               |               |
 |---------------|---------------|---------------|---------------|
 |2019-10        |2019-11        |2019-12        |...            |

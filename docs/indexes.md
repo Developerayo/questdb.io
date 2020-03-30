@@ -1,22 +1,24 @@
 ---
 id: indexes
-title: INDEXES
+title: Indexes
 sidebar_label: Indexes
 ---
 
-An index stores row locations for each value of the target column in order to provide faster read access.
-It allows to bypass full table scans by directly accessing the relevant rows on queries with `WHERE` conditions.
+An index stores the row locations for each value of the target column in order to provide faster read access. 
+It allows you to bypass full table scans by directly accessing the relevant rows during queries with `WHERE` conditions.
 
 > Indexing is available for `SYMBOL` columns. Index support for other types will be added over time.
 
 There are two ways to create an index:
-- At table creation time using  [CREATE TABLE](createTable.md#index).
-- Using  [ALTER TABLE](alterTableAlterColumnAddIndex.md) 
+- At table creation time using  [CREATE TABLE](createTable.md#index)
+- Using  [ALTER TABLE](alterTableAlterColumnAddIndex.md)
 
-## How does Index work
+## How Index works
 
-Index works by creating a table that stores row locations of each distinct value for the target symbol. Once the index is created,
-inserting data into the table will update the index.
+Index creates a table of row locations for each distinct value for the target symbol. 
+Once the index is created, inserting data into the table will update the index.
+Lookups on indexed values will be performed in the index table directly which will provide the 
+memory locations of the items, thus avoiding unnecessary table scans.
 
 Here is an example of a table and its index table.
 ```shell script
@@ -42,14 +44,16 @@ Table                                       Index
 ```
 
 ### Advantages
-Index allows to greatly reduce the complexity of queries that span a subset of the indexed column, typically with `WHERE` clauses.
+Index allows you to greatly reduce the complexity of queries that span a subset of an indexed column, 
+typically when using WHERE clauses.
 
 Consider the following query applied to the above table `SELECT sum(Value) FROM Table WHERE Symbol='A';`
-- **Without Index**, the query engine would scan the whole Table in order to perform the query. It will need to perform 6 operations
+- **Without Index**, the query engine would scan the whole table in order to perform the query. It will need to perform 6 operations
 (read each of the 6 rows once).
-- **WIth Index**, the query engine will first scan the index table, which is considerably smaller. In our example, it will find A 
-in the first row. Then, the Query engine would check the values at the specific locations 1, 2, 4 in the Table to read the 
-corresponding values. As a result, it would only scan the relevant rows in Table and leave irrelevant rows untouched. 
+- **With Index**, the query engine will first scan the index table, which is considerably smaller. In our example, 
+it will find A in the first row. Then, the query engine would check the values at the specific locations 1, 2, 4 
+in the table to read the corresponding values. As a result, it would only scan the relevant rows in the table and 
+leave irrelevant rows untouched. 
 
 ### Tradeoffs
 There are two tradeoffs with Index. 
